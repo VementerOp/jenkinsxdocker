@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('checkout'){
       steps{
-        git 'https://github.com/VementerOp/jenkinsxdocker.git' , branch :'main'
+        git 'https://github.com/VementerOp/jenkinsxdocker.git' 
       }
     }
     stage ('Build Image'){
