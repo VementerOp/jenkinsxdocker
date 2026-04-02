@@ -1,25 +1,25 @@
 pipeline{
   agent any
   stages{
-    stage('checkout'){
-      steps{
+    stage('Checkout'){
+      steps {
         git 'https://github.com/VementerOp/jenkinsxdocker.git' 
       }
     }
     stage ('Build Image'){
-      steps{
+      steps {
         bat 'docker build -t mywebsite .'
       }
     }
 
     stage ('Stop Old Containers'){
-      steps{
+      steps {
         bat 'docker stop mycont || exit 0'
         bat 'docker rm mycont || exit 0'
       }
     }
     stage ('Run Image - Containerize'){
-      steps{
+      steps {
         bat 'docker run -d -p 7000:80 --name mycont mywebsite'
       }
     }
