@@ -11,7 +11,6 @@ pipeline{
         bat 'docker build -t mywebsite .'
       }
     }
-
     stage ('Stop Old Containers'){
       steps {
         bat 'docker stop mycont || exit 0'
@@ -23,7 +22,5 @@ pipeline{
         bat 'docker run -d -p 7000:80 --name mycont mywebsite'
       }
     }
-    
   }
-  
 }
